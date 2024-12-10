@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 /**
  * Represents a House, a specific type of Building where people can reside.
  * The House keeps track of its residents and whether it has a dining room.
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class House extends Building {
     private ArrayList<String> residents; // The <String> tells Java what kind of data we plan to store in the ArrayList
-    private Boolean hasDiningRoom;
+    private boolean hasDiningRoom;
 
     /**
      * Constructs a House with the specified name, address, number of floors, and
@@ -73,8 +74,7 @@ public class House extends Building {
             residents.remove(name);
             return name;
         } else {
-            System.out.println(name + " is not a resident of the house yet");
-            return null;
+            throw new RuntimeException(name + " is not a resident of the house.");
         }
     }
 

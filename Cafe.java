@@ -50,7 +50,7 @@ public class Cafe extends Building {
             System.out.println("Not enough ingredients. Restocking...");
             restock(size - nCoffeeOunces, nSugarPackets - this.nSugarPackets, nCreams - this.nCreams, 1 - nCups);
         }
-        nCoffeeOunces -= size;
+        this.nCoffeeOunces -= size;
         this.nSugarPackets -= nSugarPackets;
         this.nCreams -= nCreams;
         nCups -= 1;
@@ -69,12 +69,15 @@ public class Cafe extends Building {
      * @param nCups          The cups to restock.
      */
     private void restock(int nCoffeeOunces, int nSugarPackets, int nCreams, int nCups) {
-        if (nCoffeeOunces > 0) { this.nCoffeeOunces += nCoffeeOunces; }
-        if (nSugarPackets > 0) { this.nSugarPackets += nSugarPackets; }
-        if (nCreams > 0) { this.nCreams += nCreams; }
-        if (nCups > 0) { this.nCups += nCups; }
-
-        System.out.println("Restocked: " + nCoffeeOunces + " ounces of coffee, " + nSugarPackets +
+        if (nCoffeeOunces > 0) {
+            this.nCoffeeOunces += nCoffeeOunces;
+        } if (nSugarPackets > 0) {
+            this.nSugarPackets += nSugarPackets;
+        } if (nCreams > 0) {
+            this.nCreams += nCreams;
+        } if (nCups > 0) {
+            this.nCups += nCups;
+        } System.out.println("Restocked: " + nCoffeeOunces + " ounces of coffee, " + nSugarPackets +
                            " sugar packets, " + nCreams + " creams, and " + nCups + " cups.");
     }
 

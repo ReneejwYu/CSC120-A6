@@ -36,7 +36,7 @@ public class Library extends Building {
         if (!collection.containsKey(title)) {
             collection.put(title, true);
         } else {
-            System.out.println(title + " is already in the collection");
+            throw new RuntimeException(title + " is already in the collection.");
         }
     }
 
@@ -51,8 +51,7 @@ public class Library extends Building {
             collection.remove(title);
             return title;
         } else {
-            System.out.println(title + " is not in the collection");
-            return null;
+            throw new RuntimeException(title + " is not in the collection");
         }
     }
 
@@ -65,7 +64,7 @@ public class Library extends Building {
         if (collection.containsKey(title) && collection.get(title)) {
             collection.put(title, false);
         } else {
-            System.out.println(title + " is not in the collection or already checked out.");
+            throw new RuntimeException(title + " is not in the collection or already checked out.");
         }
     }
 
@@ -78,7 +77,7 @@ public class Library extends Building {
         if (collection.containsKey(title) && !collection.get(title)) {
             collection.put(title, true);
         } else {
-            System.out.println(title + " is not in the collection or already available.");
+            throw new RuntimeException(title + " is not in the collection or already available.");
         }
     }
 
